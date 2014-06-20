@@ -1,4 +1,4 @@
-<%= form_for(@todo) do |f| %>
+<%= form_for(@todo, html: {class: "form-inline"}) do |f| %>
   <% if @todo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
@@ -11,15 +11,9 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name, class: "sr-only" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
   </div>
-  <div class="field">
-    <%= f.label :finished %><br>
-    <%= f.check_box :finished %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit "Add Task", class: "btn btn-default" %>
 <% end %>
