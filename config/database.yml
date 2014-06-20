@@ -22,8 +22,9 @@ default: &default
   pool: 5
 
 development:
-  <<: *default
-  database: rails-todo_development
+  adapter: sqlite3
+  database: db/rails-todo_development.sqlite3
+  pool: 5
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
